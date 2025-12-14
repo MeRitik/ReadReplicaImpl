@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: "read_replica_impl"
+
+  datasource:
+    primary:
+      jdbc-url: jdbc:mysql://localhost:3306/products
+      username: root
+      password: ritik
+
+    replica:
+      jdbc-url: jdbc:mysql://localhost:3306/replica
+      username: root
+      password: ritik
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
