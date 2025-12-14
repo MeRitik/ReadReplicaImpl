@@ -1,0 +1,29 @@
+services:
+  mysql-primary:
+    image: mysql:8.0.36
+    command: --server-id=1 --log-bin=mysql-bin --binlog-format=ROW
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: products
+    ports:
+      - "3307:3306"
+    volumes:
+      - primary-data:/var/lib/mysql
+
+
+  mysql-replica:
+    image: mysql:8.0.36
+    command: --server-id=2
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3308:3306"
+    volumes:
+      - replica-data:/var/lib/mysql
+    depends_on:
+      - mysql-primary
+
+volumes:
+  primary-data:
+  replica-data:

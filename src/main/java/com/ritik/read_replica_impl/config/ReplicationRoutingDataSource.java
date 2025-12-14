@@ -10,10 +10,10 @@ public class ReplicationRoutingDataSource extends AbstractRoutingDataSource {
         if (TransactionSynchronizationManager.isSynchronizationActive()) {
             boolean isReadOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
 
-            System.out.println("Transaction active | Read-only: " + isReadOnly);
+//            System.out.println("Transaction active | Read-only: " + isReadOnly);
             return isReadOnly ? DataSourceType.REPLICA : DataSourceType.PRIMARY;
         } else {
-            System.out.println("Transaction inactive");
+//            System.out.println("Transaction inactive");
             return DataSourceType.PRIMARY;
         }
     }

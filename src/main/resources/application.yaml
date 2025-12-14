@@ -4,21 +4,21 @@ spring:
 
   datasource:
     primary:
-      jdbc-url: jdbc:mysql://localhost:3306/products
+      jdbc-url: jdbc:mysql://localhost:3307/products
       username: root
       password: ritik
       hikari:
         pool-name: PrimaryPool
 
     replica:
-      jdbc-url: jdbc:mysql://localhost:3306/replica
+      jdbc-url: jdbc:mysql://localhost:3308/products
       username: root
       password: ritik
       pool-name: ReplicaPool
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
 
     show-sql: true
     properties:
