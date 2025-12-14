@@ -1,10 +1,6 @@
 package com.ritik.read_replica_impl.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,6 +19,7 @@ public class Product {
 
     private BigDecimal price;
 
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public Product() {
